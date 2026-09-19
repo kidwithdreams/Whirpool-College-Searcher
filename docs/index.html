@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Whirpool creates fast, verified university profiles with campus visuals and typical admission scores.">
+  <meta name="theme-color" content="#dcecf5">
+  <title>Whirpool | Find the college that suits you best</title>
+  <link rel="icon" type="image/png" href="assets/whirpool-avatar.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="search-backdrop" id="searchBackdrop" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#top" aria-label="Whirpool home">
+      <span class="brand-mark" aria-hidden="true"><img src="assets/whirpool-avatar.png" alt=""></span>
+      <span>Whirpool</span>
+    </a>
+    <nav class="nav-glass" aria-label="Primary navigation">
+      <a class="active" href="#top">Home</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#profile">Profile</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#living">Living</a>
+    </nav>
+    <button class="nav-action" type="button" data-open-search>
+      Search universities <span aria-hidden="true">↗</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="assets/campus-quad.png">
+        <source src="assets/campus-hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-scrim"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <h1 id="hero-title">See Universities<br><em>As They Truly Are.</em></h1>
+        <p class="hero-copy">Instant, verified visual profiles of campuses, dorms, and student life in 30 seconds.</p>
+
+        <div class="search-shell" id="searchShell" data-state="closed">
+          <button class="search-trigger" id="searchTrigger" type="button" aria-haspopup="dialog" aria-expanded="false">
+            <span class="search-icon" aria-hidden="true"></span>
+            <span>Search a university or ask the advisor</span>
+            <span class="search-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <div class="search-panel" id="searchPanel" role="dialog" aria-modal="true" aria-labelledby="searchTitle" hidden>
+            <div class="search-panel-head">
+              <div>
+                <span class="panel-kicker" id="panelKicker">Campus profiler</span>
+                <h2 id="searchTitle">Where do you want to study?</h2>
+              </div>
+              <button class="close-button" id="closeSearch" type="button" aria-label="Close search">✕</button>
+            </div>
+            <div class="search-modes" role="tablist" aria-label="Search mode">
+              <button class="active" type="button" role="tab" aria-selected="true" data-search-mode="profile">University profile</button>
+              <button type="button" role="tab" aria-selected="false" data-search-mode="advisor">AI Advisor</button>
+              <button type="button" role="tab" aria-selected="false" data-search-mode="favorites">Favorites</button>
+            </div>
+            <form id="universitySearch" novalidate>
+              <label for="universityInput" id="searchInputLabel">University name</label>
+              <div class="input-row">
+                <input id="universityInput" name="university" type="search" autocomplete="off" placeholder="Try Nazarbayev University">
+                <button class="generate-button" type="submit">Generate Profile</button>
+              </div>
+              <p class="form-help" id="searchHelp">We will assemble a live visual profile in about 30 seconds.</p>
+              <div class="quick-tags" aria-label="Popular universities">
+                <button type="button" data-search-tag="Nazarbayev University">Nazarbayev University</button>
+                <button type="button" data-search-tag="Harvard">Harvard</button>
+                <button type="button" data-search-tag="Oxford">Oxford</button>
+              </div>
+            </form>
+            <div class="search-result" id="searchResult" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="light-surface">
+      <section class="section coverage-section reveal" id="coverage" aria-labelledby="coverage-title">
+        <div class="coverage-copy">
+          <p class="section-label">A global student community</p>
+          <h2 id="coverage-title">Trusted by Students,<br>Worldwide.</h2>
+          <p>From the first university search to graduation day, students across the world trust Whirpool’s AI agent to turn scattered campus information into clear, visual decisions.</p>
+        </div>
+
+        <aside class="graduate-card glass-card" aria-label="Graduates from the global Whirpool student community">
+          <div class="graduate-glow" aria-hidden="true"></div>
+          <div class="graduate-stage" id="graduateStage">
+            <img class="graduate-image graduate-image-one is-active" src="assets/graduates-01.png" alt="Two university graduates celebrating with their diplomas" aria-hidden="false">
+            <img class="graduate-image graduate-image-two" src="assets/graduates-02.png" alt="Three university graduates raising their graduation caps" aria-hidden="true">
+            <img class="graduate-image graduate-image-three" src="assets/graduates-03.png" alt="Three smiling university graduates holding diplomas" aria-hidden="true">
+          </div>
+          <div class="graduate-card-footer">
+            <div><span>Student stories</span><strong>One decision can shape a lifetime.</strong></div>
+            <div class="graduate-dots" aria-hidden="true">
+              <span class="is-active"></span><span></span><span></span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section profile-section reveal" id="profile" aria-labelledby="profile-title">
+        <div class="section-heading">
+          <h2 id="profile-title">A complete campus profile,<br>before you book the flight.</h2>
+          <p>One clear view of academics, accommodation, facilities, student life, and the city beyond the gates.</p>
+        </div>
+
+        <article class="summary-card glass-card">
+          <div class="summary-main">
+            <div class="summary-meta">
+              <span class="summary-logo has-photo" aria-hidden="true">
+                <img src="https://thb.tildacdn.pro/tild6331-6437-4434-b631-643664653862/-/resize/504x/nazarbayev-universit.jpg" alt="" loading="eager" referrerpolicy="no-referrer">
+              </span>
+              <div>
+                <p class="summary-caption">Sample profile</p>
+                <h3>Nazarbayev University</h3>
+                <p>Astana, Kazakhstan</p>
+              </div>
+            </div>
+            <p class="summary-text">A research-focused university with a modern residential campus, English-language instruction, and strong science and engineering facilities.</p>
+            <div class="summary-facts admissions-facts">
+              <div><span>Typical GPA</span><strong>3.5 / 4.0</strong></div>
+              <div><span>Typical SAT</span><strong>1240+</strong></div>
+              <div><span>IELTS target</span><strong>6.5+</strong></div>
+            </div>
+          </div>
+          <div class="confidence-panel">
+            <span>Overall confidence</span>
+            <strong>94%</strong>
+            <small>Verified across official and student sources</small>
+          </div>
+        </article>
+      </section>
+
+      <section class="section gallery-section reveal" id="gallery" aria-labelledby="gallery-title">
+        <div class="gallery-head">
+          <div>
+            <p class="section-label">Visual evidence</p>
+            <h2 id="gallery-title">Look beyond the brochure.</h2>
+          </div>
+          <p>Filter the profile to inspect the places and experiences that matter to you.</p>
+        </div>
+
+        <div class="filter-tabs" role="group" aria-label="Gallery filters">
+          <button class="active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="dormitories" aria-pressed="false">Dormitories</button>
+          <button type="button" data-filter="sports" aria-pressed="false">Sports</button>
+          <button type="button" data-filter="laboratories" aria-pressed="false">Laboratories</button>
+          <button type="button" data-filter="student-life" aria-pressed="false">Student Life</button>
+          <button type="button" data-filter="campus" aria-pressed="false">Campus</button>
+          <button type="button" data-filter="city" aria-pressed="false">City</button>
+        </div>
+
+        <div class="gallery-grid is-loading" id="galleryGrid" aria-busy="true">
+          <div class="gallery-skeleton" aria-hidden="true"></div>
+          <div class="gallery-skeleton" aria-hidden="true"></div>
+          <div class="gallery-skeleton" aria-hidden="true"></div>
+        </div>
+
+        <div class="empty-gallery" id="emptyGallery" hidden>
+          <h3>No images in this sample yet.</h3>
+          <p>Load five live images for this category or choose All.</p>
+          <button type="button" data-reset-filter>Show all images</button>
+        </div>
+
+        <div class="gallery-more">
+          <button class="load-more-button" id="loadMoreGallery" type="button" disabled>
+            <span>Load 5 more</span><span aria-hidden="true">＋</span>
+          </button>
+          <p id="galleryStatus" aria-live="polite">Loading real university photography…</p>
+        </div>
+      </section>
+
+      <section class="section living-section reveal" id="living" aria-labelledby="living-title">
+        <div class="section-heading compact">
+          <h2 id="living-title">Understand life around the campus.</h2>
+          <p>Place, climate, and everyday costs shape the student experience as much as the lecture hall.</p>
+        </div>
+
+        <div class="living-grid">
+          <article class="map-card glass-card">
+            <div class="map-topline">
+              <div>
+                <p>Campus map</p>
+                <h3>Everything within reach</h3>
+              </div>
+              <span>12 min walk</span>
+            </div>
+            <div class="map-visual" aria-label="Simplified campus map placeholder">
+              <span class="road road-one"></span>
+              <span class="road road-two"></span>
+              <span class="road road-three"></span>
+              <span class="map-pin pin-campus">Campus</span>
+              <span class="map-pin pin-dorms">Dorms</span>
+              <span class="map-pin pin-city">City center</span>
+            </div>
+          </article>
+
+          <article class="climate-card glass-card">
+            <div>
+              <p>Climate</p>
+              <h3>Four distinct seasons</h3>
+            </div>
+            <div class="temperature">-14°<span>Typical January</span></div>
+            <p>Cold, dry winters and warm summers. Most campus buildings are connected by short indoor routes.</p>
+          </article>
+
+          <article class="cost-card glass-card">
+            <div>
+              <p>Estimated living costs</p>
+              <h3>$420-680</h3>
+              <span>per month, excluding tuition</span>
+            </div>
+            <div class="cost-items">
+              <span>Housing <strong>$210-330</strong></span>
+              <span>Food <strong>$140-220</strong></span>
+              <span>Transport <strong>$20-40</strong></span>
+            </div>
+            <small>Sample estimate for interface demonstration.</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="final-cta reveal" aria-labelledby="cta-title">
+        <div>
+          <h2 id="cta-title">Choose with evidence,<br>not assumptions.</h2>
+        </div>
+        <button class="final-search" type="button" data-open-search>Search a university <span aria-hidden="true">↗</span></button>
+      </section>
+
+      <footer>
+        <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><img src="assets/whirpool-avatar.png" alt=""></span><span>Whirpool</span></a>
+        <p>Find the college that suits you best.</p>
+        <p>Hackathon prototype, 2026</p>
+      </footer>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
