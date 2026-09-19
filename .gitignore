@@ -12,3 +12,7 @@ __pycache__/
 work/
 outputs/
 *.log
+*.zip
+*.tar.gz
+.DS_Store
+Thumbs.db
