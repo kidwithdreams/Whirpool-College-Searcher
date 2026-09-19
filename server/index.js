@@ -493,7 +493,7 @@ async function searchProfile(request, env) {
   });
 }
 
-export default {
+const apiHandler = {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (url.pathname === "/api/gallery") {
@@ -520,5 +520,31 @@ export default {
     }
     if (env.ASSETS?.fetch) return env.ASSETS.fetch(request);
     return new Response("Not found", { status: 404 });
+  },
+};
+
+// Allow the public GitHub Pages frontend; credentials stay in Worker secrets.
+export default {
+  async fetch(request, env, ctx) {
+    const origin = request.headers.get("Origin");
+    const allowed = origin === "https://kidwithdreams.github.io";
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        status: allowed ? 204 : 403,
+        headers: allowed ? {
+          "Access-Control-Allow-Origin": origin,
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Max-Age": "86400",
+          "Vary": "Origin",
+        } : {},
+      });
+    }
+    const response = await apiHandler.fetch(request, env, ctx);
+    if (!allowed) return response;
+    const headers = new Headers(response.headers);
+    headers.set("Access-Control-Allow-Origin", origin);
+    headers.append("Vary", "Origin");
+    return new Response(response.body, { status: response.status, headers });
   },
 };
