@@ -1,5 +1,10 @@
 # Whirlpool FastAPI backend
 
+> This directory is a documented Python reference implementation of the profiling
+> pipeline. The deployed hackathon website currently uses the lighter serverless
+> worker in [`../server/index.js`](../server/index.js), which provides the search,
+> advisor, and gallery endpoints used by GitHub Pages.
+
 This service implements the three concurrent streams behind the Whirlpool campus
 profiler. `POST /api/search` runs image retrieval/verification, summary generation,
 and location metadata concurrently under a 29-second request deadline.
